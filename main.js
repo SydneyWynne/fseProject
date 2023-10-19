@@ -1,18 +1,11 @@
 function setup() {
   createCanvas(400, 400);
-}
-
-function draw() {
   background(220);
-  stroke('black');
-  noFill();
-  randomLetter();
 }
 
-function randomLetter(){
-  let rand = Math.floor(Math.random() * (26 - 1 + 1) + 1);
-  letterFuncs[rand]();
-  noLoop();}
+let newLetter = true;
+let randomVal = 1;
+
 
 //Letter Functions ***********
 
@@ -148,3 +141,50 @@ const letterFuncs = {1: a_, 2: b_, 3: c_, 4: d_, 5: e_, 6: f_, 7: g_, 8: h_,
                   9: i_, 10: j_, 11: k_, 12: l_, 13: m_, 14: n_, 15: o_,
                   16: p_, 17: q_, 18: r_, 19: s_, 20: t_, 21: u_, 22: v_, 
                   23: w_, 24: x_, 25: y_, 26: z_};
+
+
+
+function draw() {
+  stroke('black');
+  noFill();
+  strokeWeight(10);
+  
+  //switch so it doesn't keep looping
+  if (newLetter == true){
+    randomVal = randomLetter();
+  }
+  
+  letterFuncs[randomVal]();
+  
+  
+  //draw function
+  if (mouseIsPressed){
+    indexCalc = ((mouseY - 1) * 1600) + (mouseX * 4);
+    print(indexCalc);
+    print(pixels[indexCalc]);
+    noStroke();
+    if (pixels[indexCalc] < 0){
+      fill(green);
+      ellipse(mouseX, mouseY, 20);
+      fill(0)
+    } 
+    else{
+      fill(150, 25, 150, 75);
+      ellipse(mouseX, mouseY, 20);
+      fill(0);
+    }
+  }
+  loadPixels();
+  updatePixels();
+}
+
+
+function mousePressed(){
+  //background(220);
+}
+
+function randomLetter(){
+  let rand = Math.floor(Math.random() * (26 - 1 + 1) + 1);
+  newLetter = false;
+  return rand;
+}
