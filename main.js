@@ -6,7 +6,6 @@ function setup() {
 let newLetter = true;
 let randomVal = 1;
 
-
 //Letter Functions ***********
 
 const a_ = function A(){
@@ -163,8 +162,8 @@ function draw() {
     print(indexCalc);
     print(pixels[indexCalc]);
     noStroke();
-    if (pixels[indexCalc] < 0){
-      fill(green);
+    if (pixels[indexCalc] == 0){
+      fill('green');
       ellipse(mouseX, mouseY, 20);
       fill(0)
     } 
