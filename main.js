@@ -7,6 +7,8 @@ function setup() {
   frameRate(2000);
   button = createButton("Reset");
   button.mousePressed(resetSketch);
+  let buttontwo = createButton("next");
+  buttontwo.mousePressed(randomLetter);
 }
 
 function resetSketch(){
@@ -163,6 +165,8 @@ function draw() {
   //switch so it doesn't keep looping
   if (newLetter == true){
     randomVal = randomLetter();
+    newLetter = false;
+    resetSketch();
   }
   
   letterFuncs[randomVal]();
@@ -196,6 +200,6 @@ function mousePressed(){
 
 function randomLetter(){
   let rand = Math.floor(Math.random() * (26 - 1 + 1) + 1);
-  newLetter = false;
+  newLetter = true;
   return rand;
 }
