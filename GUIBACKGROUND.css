@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  font-family: system-ui;
+}
+canvas {
+  display: block;
+}
+  .hero {
+  
+  background-image: url("spaceBackground.jpg");
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 400px;
+  color: white;
+}
