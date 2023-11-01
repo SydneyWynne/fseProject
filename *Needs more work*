@@ -1,16 +1,9 @@
-canvasid = "myCanvas"
-
+let img;
+let colorCheck;
 function setup() {
   createCanvas(400, 400);
-}
-
-function convertToImage() {
- const canvas = document.getElementById('myCanvas'); 
-  const context = canvas.getContext('2d');
-  
-  const img = new Image();
-  
-  image.src = canvas.toDataURL();
+  img = createImage(400, 400);
+  img.loadPixels();
   
 }
 
@@ -19,8 +12,9 @@ function draw() {
   strokeWeight(5);
   stroke('black');
   line(0, 0, 400, 400);
+  colorCheck = img.get(mouseX, mouseY);
   while (mouseIsPressed) {
-   if (point(mouseX, mouseY) == color('black')) {
+   if (colorCheck == 'black') {
     strokeWeight(5);
      stroke('green');
      line(pmouseX, pmouseY, mouseX, mouseY);
