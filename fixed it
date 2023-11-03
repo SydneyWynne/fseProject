@@ -1,0 +1,32 @@
+//let img;
+let colorCheck;
+function setup() {
+  createCanvas(400, 400);
+  background(220);
+  //img = createImage(400, 400);
+  //loadPixels();
+  
+}
+
+function draw() {
+  strokeWeight(15);
+  stroke('black');
+  line(0, 0, 400, 400);
+  loadPixels();
+  colorCheck = get(mouseX, mouseY);
+  print(colorCheck[0]);
+  if (mouseIsPressed) {
+   if (colorCheck[0] == 0 && colorCheck[1] == 0 && colorCheck[2] == 0) {
+     fill('green');
+     noStroke()
+     ellipse(mouseX, mouseY, 20);
+   } else {
+     fill('red');
+     noStroke();
+     ellipse(mouseX, mouseY, 20);
+   }
+  }
+}
+
+function mouseIsPressed(){
+}
