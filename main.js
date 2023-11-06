@@ -173,20 +173,20 @@ function draw() {
   
   
   //draw function
-  if (mouseIsPressed){
-    indexCalc = ((mouseY - 1) * 1600) + (mouseX * 4);
-    print(indexCalc);
-    print(pixels[indexCalc]);
-    noStroke();
-    if (pixels[indexCalc] == 0){
-      fill('green');
-      ellipse(mouseX, mouseY, 20);
-      fill(0)
-    } 
-    else{
-      fill(150, 25, 150, 75);
-      ellipse(mouseX, mouseY, 20);
-      fill(0);
+  if (mouseIsPressed) {
+    strokeWeight(25);
+  stroke('black');
+  loadPixels();
+  colorCheck = get(mouseX, mouseY);
+  print(colorCheck[0]);
+   if (colorCheck[0] == 0 && colorCheck[1] == 0 && colorCheck[2] == 0) {
+     fill('green');
+     noStroke()
+     ellipse(mouseX, mouseY, 20);
+   } else {
+     fill('red');
+     noStroke();
+     ellipse(mouseX, mouseY, 20);
     }
   }
   loadPixels();
