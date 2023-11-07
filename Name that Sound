@@ -1,0 +1,43 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  monkey();
+  astronaut();
+  rocketShip();
+  spaceShip();
+  cow();
+  sheep();
+}
+
+function monkey() {
+  textSize(24);
+  text('Monkey', 50, 250);
+}
+
+function astronaut() {
+  textSize(24);
+  text('Astronaut', 50, 300);
+}
+
+function rocketShip() {
+  textSize(24);
+  text('Rocket Ship', 50, 350);
+}
+
+function spaceShip() {
+  textSize(24);
+  text('Space Ship', 50, 200);
+}
+
+function cow() {
+  textSize(24);
+  text('Cow', 50, 150);
+}
+
+function sheep() {
+  textSize(24);
+  text('Sheep', 50, 100);
+}
