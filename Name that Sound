@@ -1,43 +1,46 @@
+let monkeySound;
+let sheepSound;
+let spacestationSound;
+let cowSound;
+let astronautSound;
+let button;
+let sounds;
+let numArray = [0, 1, 2, 3, 4]
+
+function preload() {
+  monkeySound = loadSound("Monkey.mp3");
+  sheepSound = loadSound("Sheep sound.mp3");
+  spacestationSound = loadSound("SpaceStation sound.mp3");
+  cowSound = loadSound("Cow sound.mp3");
+  astronautSound = loadSound("Astronaut.mp3");
+  
+}
+
 function setup() {
+  sounds = [monkeySound, sheepSound, spacestationSound, cowSound, astronautSound];
+  i = random(numArray);
   createCanvas(400, 400);
+  button = createButton("Play Sound");
+  button.mousePressed(playSound(i));
 }
 
 function draw() {
   background(220);
-  monkey();
-  astronaut();
-  rocketShip();
-  spaceShip();
-  cow();
-  sheep();
+  textSize(24);
+  let Monkey = text('Monkey', 50, 50);
+  let Sheep = text('Sheep', 50, 100);
+  let SpaceStation = text('Space Station', 50, 150);
+  let Cow = text('Cow', 50, 200);
+  let Astronaut = text('Astronaut', 50, 250);
+  
+}
+function randSound() {
+  let i = random(0, 4);
+  return i;
 }
 
-function monkey() {
-  textSize(24);
-  text('Monkey', 50, 250);
-}
-
-function astronaut() {
-  textSize(24);
-  text('Astronaut', 50, 300);
-}
-
-function rocketShip() {
-  textSize(24);
-  text('Rocket Ship', 50, 350);
-}
-
-function spaceShip() {
-  textSize(24);
-  text('Space Ship', 50, 200);
-}
-
-function cow() {
-  textSize(24);
-  text('Cow', 50, 150);
-}
-
-function sheep() {
-  textSize(24);
-  text('Sheep', 50, 100);
+function playSound(i) {
+  if (sounds[i].isPlaying === false) {
+  sounds[i].play();
+  }
 }
