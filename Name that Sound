@@ -1,9 +1,12 @@
 let sounds = [];
 let i;
-let monk
 
 function preload() {
-  monk = loadSound("Monkey.mp3");
+  sounds[0] = loadSound("Monkey.mp3");
+  sounds[1] = loadSound("Sheep sound.mp3");
+  sounds[2] = loadSound("SpaceStation sound.mp3");
+  sounds[3] = loadSound("Cow sound.mp3");
+  sounds[4] = loadSound("Astronaut.mp3");
 }
 
 function setup() {
@@ -11,7 +14,6 @@ function setup() {
   let button = createButton("Play Sound");
   button.position(50, 300);
   button.mousePressed(playSound);
-  monk.play()
 }
 
 function draw() {
@@ -30,5 +32,7 @@ function randSound() {
 
 function playSound() {
   i = randSound();
-  sounds[4].play()
+  if (sounds[i].isLoaded()) {
+    sounds[i].play();
+  }
 }
