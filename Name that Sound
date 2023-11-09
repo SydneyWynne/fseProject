@@ -14,6 +14,7 @@ function setup() {
   let button = createButton("Play Sound");
   button.position(50, 300);
   button.mousePressed(playSound);
+  i = randSound();
 }
 
 function draw() {
@@ -31,7 +32,6 @@ function randSound() {
 }
 
 function playSound() {
-  i = randSound();
   if (sounds[i].isLoaded()) {
     sounds[i].play();
   }
