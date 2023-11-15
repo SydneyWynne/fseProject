@@ -1,4 +1,6 @@
 let sounds = [];
+let correct;
+let wrong;
 let i;
 let count = 0;
 
@@ -8,6 +10,8 @@ function preload() {
   sounds[2] = loadSound("SpaceStation sound.mp3");
   sounds[3] = loadSound("Cow sound.mp3");
   sounds[4] = loadSound("Astronaut.mp3");
+  wrong = loadSound("Wrong.mp3");
+  correct = loadSound("Correct.mp3");
 }
 
 function setup() {
@@ -50,9 +54,11 @@ function monk(){
   if (i == 0){
     count = count + 1;
     i = randSound();
+    correct.play();
   }
   else{
     count = 0;
+    wrong.play();
   }
 }
 
@@ -61,9 +67,11 @@ function sheep(){
   if (i == 1){
     count = count + 1;
     i = randSound();
+    correct.play();
   }
   else{
     count = 0;
+    wrong.play();
   }
 }
 
@@ -72,9 +80,11 @@ function station(){
   if (i == 2){
     count = count + 1;
     i = randSound();
+    correct.play();
   }
   else{
     count = 0;
+    wrong.play();
   }
 }
 
@@ -83,9 +93,11 @@ function cow(){
   if (i == 3){
     count = count + 1;
     i = randSound();
+    correct.play();
   }
   else{
     count = 0;
+    wrong.play();
   }
 }
 
@@ -94,9 +106,11 @@ function astro(){
   if (i == 4){
     count = count + 1;
     i = randSound();
+    correct.play();
   }
   else{
     count = 0;
+    wrong.play();
   }
 }
 
