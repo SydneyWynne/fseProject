@@ -1,0 +1,125 @@
+let img;
+let backgroundImg;
+let rngNum;
+let alien;
+let x, y, x2, y2;
+let score;
+let pressed = false;
+let location = [];
+let numHoles = 10;
+let currentLocation;
+function setup() {
+  createCanvas(626, 359);
+  img = loadImage('Alien.png');
+  backgroundImg = loadImage('spaceBackground.jpg');
+  
+  const newButton = document.createElement('button');
+  newButton.textContent = 'Click to start!';
+  document.body.appendChild(newButton);
+  
+  newButton.addEventListener('click', () => {
+  timer();
+});
+
+  score = 0;
+
+}
+
+function draw() {
+  background(backgroundImg);
+  rect(0, 0, 80, 25);
+  print(score);
+  
+  if ((mouseX > x) && (mouseX < x2) && (mouseY > y) && (mouseY < y2) && pressed) {
+    clearImage();
+    ++score;
+  }
+}
+
+function timer() {
+ setInterval(rng, 3000);
+ setInterval(clearImage, 6000);
+}
+   
+function rng() {
+  rngNum = Math.floor(Math.random() * 10);
+  if (rngNum == 0) {
+    currentState = true;
+    x = -30;
+    y = 180;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 1) {
+    currentState = true;
+    x = 90;
+    y = 150;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 2) {
+    currentState = true;
+    x = 60;
+    y = 120;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 3) {
+    currentState = true;
+    x = 220;
+    y = 140;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 4) {
+    currentState = true;
+    x = 280;
+    y = 170;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 5) {
+    currentState = true;
+    x = 360;
+    y = 140;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 6) {
+    currentState = true;
+    x = 440;
+    y = 180;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 7) {
+    currentState = true;
+    x = 500;
+    y = 110;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 8) {
+    currentState = true;
+    x = 530;
+    y = 220;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  } else if (rngNum == 9) {
+    currentState = true;
+    x = 560;
+    y = 180;
+    alien = image(img, x, y, img.width / 4, img.height / 4);
+    x2 = x + 94;
+    y2 = y + 90;
+  }
+ }
+
+function mousePressed() {
+ pressed = true; 
+}
+
+function clearImage() {
+ currentState = false;
+}
