@@ -1,0 +1,50 @@
+var imgX = 2000;
+var imgY = 2000;
+var imgWidth = 50;
+var score = 0;
+var img;
+var backgroundImg;
+
+function setup() {
+  createCanvas(626, 359);
+  
+  img = loadImage('Alien.png');
+  backgroundImg = loadImage('spaceBackground.jpg');
+  
+  const newButton = document.createElement('button');
+  newButton.textContent = 'Click to start!';
+  document.body.appendChild(newButton);
+  
+  newButton.addEventListener('click', () => {
+    updateImage();
+});
+
+}
+
+function draw() {
+    background(backgroundImg)
+    rect(10, 0, 100, 30);
+    image(img, imgX, imgY, img.width / 4, img.height / 4);
+    updateScore();
+}
+
+function mousePressed() {
+    var d = dist(mouseX, mouseY, imgX + 45, imgY + 45);
+    if (d < imgWidth / 1.25) {
+        updateImage();
+        score += 1;
+    } else {
+     score = 0; 
+    }
+}
+
+function updateImage() {
+    imgX = random(50, 300);
+    imgY = random(50, 300);
+  
+}
+
+function updateScore() {
+    textSize(20);
+    text("Score: " + score, 20, 20);
+}
